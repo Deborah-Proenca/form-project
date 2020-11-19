@@ -1,0 +1,53 @@
+﻿@model TesteFabio.Models.Formulario
+@{
+    ViewBag.Title = "Formulário";
+}
+
+<div>
+    <h1> Formulário</h1>
+    <hr>
+</div>
+@using (Html.BeginForm("Salvar", "Home", FormMethod.Post))
+{
+    <div class="row ">
+        <div class="col-md-1">
+
+            <label> <b> Nome: </b> </label>
+        </div>
+        <div class="col-md-11">
+            @Html.TextBoxFor(c => c.Nome, new { @class = "form-control", style = "width:100% !important; max-width:100%", placeholder = "Digite seu nome" })
+        </div>
+    </div>
+    <div>
+        <div class="row ">
+            <div class="col-md-1">
+                <label> <b> Telefone: </b> </label>
+            </div>
+            <div class="col-md-11">
+                @Html.TextBoxFor(c => c.Telefone, new { @class = "form-control", style = "width:100% !important; max-width:100%", placeholder = "(DDD) XXXXX-XXXX" })
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-1">
+            <label> <b> Email: </b> </label>
+        </div>
+        <div class="col-md-11">
+            @Html.TextBoxFor(c => c.Email, new { @class = "form-control", style = "width:100% !important; max-width:100%", placeholder = "Digite seu email" })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+
+        </div>
+        <div class="col-md-7">
+            <button class="btn btn-primary" ,type="submit" > Enviar Formulário</button>
+        </div>
+    </div>
+
+}
+
