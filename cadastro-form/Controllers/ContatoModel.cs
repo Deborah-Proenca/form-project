@@ -13,7 +13,7 @@ namespace cadastro_form.Controllers
 
         public ContatoModel()
         {
-            string strConn = "Data Source=localhost;Initial Catalog=BDContato;Integrated Security=true";
+            string strConn = "Data Source=anexs.com.br;Initial Catalog=BDContato2;UID=sanexs;pwd=Anexs@SQL#2019";
             connection = new SqlConnection(strConn);
             connection.Open();
         }
@@ -38,7 +38,21 @@ namespace cadastro_form.Controllers
 
         public List<Formulario> Read()
         {
-            return null;
+            List<Formulario> lista = new List<Formulario>();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = @"SELECT * FROM Contato";
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                Formulario contato = new Formulario();
+                contato.Nome = (string)reader["Nome"];
+                contato.Email = (string)reader["Email"];
+                contato.Telefone = (string)reader["Telefone"];
+                lista.Add(contato);
+            }
+            return lista;
         }
+
     }
 }

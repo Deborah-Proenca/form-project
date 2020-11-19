@@ -13,6 +13,7 @@ namespace TesteFabio.Controllers
         public ActionResult Index()
         {
             using (ContatoModel model = new ContatoModel())
+            model.Read();
             return View();
         }
 
@@ -44,7 +45,7 @@ namespace TesteFabio.Controllers
                 return RedirectToAction("Index");
             }
 
-            return Redirect("Index");
+                 
         }
 
         public ActionResult Contact()
